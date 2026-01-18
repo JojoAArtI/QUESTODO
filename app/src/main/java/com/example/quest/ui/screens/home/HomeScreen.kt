@@ -31,6 +31,7 @@ fun HomeScreen(
     tasks: List<Task>,
     onTaskClick: (Task) -> Unit,
     onTaskComplete: (Task) -> Unit,
+    onTaskDelete: (Task) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var selectedStatus by remember { mutableStateOf<String?>(null) }
@@ -100,7 +101,8 @@ fun HomeScreen(
                     TaskCard(
                         task = task,
                         onClick = { onTaskClick(task) },
-                        onComplete = { onTaskComplete(task) }
+                        onComplete = { onTaskComplete(task) },
+                        onDelete = { onTaskDelete(task) }
                     )
                 }
             }

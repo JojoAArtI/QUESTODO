@@ -81,6 +81,9 @@ fun TaskQuestApp(
                     // Toggle completion
                     viewModel.toggleTaskCompletion(task)
                 },
+                onTaskDelete = { task ->
+                    viewModel.deleteTask(task)
+                },
                 onCreateTask = { taskData ->
                     viewModel.createTask(taskData)
                 },

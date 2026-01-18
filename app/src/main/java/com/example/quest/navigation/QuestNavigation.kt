@@ -26,6 +26,7 @@ fun AppNavHost(
     tasks: List<Task>,
     onTaskClick: (Task) -> Unit,
     onTaskComplete: (Task) -> Unit,
+    onTaskDelete: (Task) -> Unit,
     onCreateTask: (CreateTaskData) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -40,7 +41,8 @@ fun AppNavHost(
             HomeScreen(
                 tasks = tasks,
                 onTaskClick = onTaskClick,
-                onTaskComplete = onTaskComplete
+                onTaskComplete = onTaskComplete,
+                onTaskDelete = onTaskDelete
             )
         }
         
@@ -48,7 +50,8 @@ fun AppNavHost(
             CalendarScreen(
                 tasks = tasks,
                 onTaskClick = onTaskClick,
-                onTaskComplete = onTaskComplete
+                onTaskComplete = onTaskComplete,
+                onTaskDelete = onTaskDelete
             )
         }
         

@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -36,6 +37,7 @@ fun TaskCard(
     task: Task,
     onClick: () -> Unit,
     onComplete: () -> Unit,
+    onDelete: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val haptic = LocalHapticFeedback.current
@@ -161,6 +163,18 @@ fun TaskCard(
                                 fontWeight = FontWeight.Medium
                             )
                         }
+                    }
+                    
+                    IconButton(
+                        onClick = onDelete,
+                        modifier = Modifier.size(24.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Close,
+                            contentDescription = "Delete",
+                            tint = TextMedium.copy(alpha = 0.5f),
+                            modifier = Modifier.size(20.dp)
+                        )
                     }
                 }
             }

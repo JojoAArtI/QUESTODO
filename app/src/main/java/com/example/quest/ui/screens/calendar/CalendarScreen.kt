@@ -41,6 +41,7 @@ fun CalendarScreen(
     tasks: List<Task>,
     onTaskClick: (Task) -> Unit,
     onTaskComplete: (Task) -> Unit,
+    onTaskDelete: (Task) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var currentMonth by remember { mutableStateOf(YearMonth.now()) }
@@ -239,7 +240,8 @@ fun CalendarScreen(
                     TaskCard(
                         task = task,
                         onClick = { onTaskClick(task) },
-                        onComplete = { onTaskComplete(task) }
+                        onComplete = { onTaskComplete(task) },
+                        onDelete = { onTaskDelete(task) }
                     )
                 }
             }
